@@ -1,6 +1,6 @@
 extends Node2D
 
-var vel = 200 # velocity
+var vel = 300 # velocity
 
 func _ready():
 	set_process(true)
