@@ -15,7 +15,13 @@ func _process(delta):
 	
 	if Input.is_action_pressed("right_"):
 		r = 1
+	
+	if get_position().x < 50:
+		l = 0
 		
+	if get_position().x > (640 - 50):
+		r = 0
+	
 	set_position(get_position() + Vector2(vel, 0) * delta * (l + r))
 	
 	pass
