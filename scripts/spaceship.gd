@@ -25,15 +25,19 @@ func _process(delta):
 	if get_position().x > (640 - 50):
 		r = 0
 	
-	set_position(get_position() + Vector2(vel, 0) * delta * (l + r))
+	set_position(get_position() + Vector2(1, 0) * vel * delta * (l + r))
 	
 	if Input.is_action_pressed("shot_"): # firing
 		if last_shot <= 0:
 			# print("shoot") # test
-			var shot = pre_shot.instance()
-			shot.set_global_position(get_global_position())
-			get_node("../").add_child(shot)
+			fire(get_node("cannonL"))
+			fire(get_node("cannonR"))
 			last_shot = interval
 	
 	if last_shot > 0:
 		last_shot -= delta
+
+func fire(node):
+	var shot = pre_shot.instance()
+	shot.set_global_position(node.get_global_position())
+	get_owner().add_child(shot)
