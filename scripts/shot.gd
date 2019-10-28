@@ -18,6 +18,8 @@ func _process(delta):
 func _on_shot_area_entered(area):
 	# print(area.get_groups()) # test
 	if area.is_in_group(game.GROUP_ENEMY):
-		# area.queue_free()
 		if area.has_method("apply_damage"):
 			area.apply_damage(1)
+		else:
+			area.queue_free()
+		queue_free()
