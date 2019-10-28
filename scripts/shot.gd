@@ -13,3 +13,8 @@ func _process(delta):
 		# print("-1 shot") # test
 		queue_free() # destroy shot
 		
+
+
+func _on_shot_area_entered(area):
+	print(area) # test
+	area.queue_free()
