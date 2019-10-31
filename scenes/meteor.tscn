@@ -1,7 +1,38 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/meteor.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Meteors/meteorBrown_big1.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00606653 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="meteor" type="Area2D"]
 script = ExtResource( 1 )
@@ -10,4 +41,10 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="shape" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PoolVector2Array( -49.2958, 9.44763, -32.9574, -40.8849, 22.9091, -40.8849, 49.2612, -1.35674, 34.1545, 31.9248, 10.26, 28.4212, -21.5316, 40.522 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/hit = SubResource( 1 )
+anims/idle = SubResource( 2 )

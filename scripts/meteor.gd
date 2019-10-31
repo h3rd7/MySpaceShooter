@@ -15,6 +15,7 @@ func _process(delta):
 	rotate(rot * delta)
 	
 func apply_damage(value):
+	get_node("anim").play("hit")
 	life -= value
 	if life <= 0:
 		queue_free()
