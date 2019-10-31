@@ -13,6 +13,9 @@ func _ready():
 func _process(delta):
 	set_position(get_position() + Vector2(0, 1) * vel * delta)
 	rotate(rot * delta)
+	if get_position().y > 500:
+		# print("-1 meteor") # test
+		queue_free()
 	
 func apply_damage(value):
 	get_node("anim").play("hit")
