@@ -1,10 +1,51 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/meteor.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Meteors/meteorBrown_big1.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
-resource_name = "hit"
+resource_name = "destroy"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00606653, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.0166305, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:modulate")
@@ -19,8 +60,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "idle"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:modulate")
 tracks/0/interp = 1
@@ -38,6 +78,8 @@ tracks/0/keys = {
 script = ExtResource( 1 )
 
 [node name="sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.85709 )
+scale = Vector2( 1.31631, 1.31631 )
 texture = ExtResource( 2 )
 
 [node name="shape" type="CollisionPolygon2D" parent="."]
@@ -46,5 +88,6 @@ polygon = PoolVector2Array( -49.2958, 9.44763, -32.9574, -40.8849, 22.9091, -40.
 
 [node name="anim" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/hit = SubResource( 1 )
-anims/idle = SubResource( 2 )
+anims/destroy = SubResource( 1 )
+anims/hit = SubResource( 2 )
+anims/idle = SubResource( 3 )

@@ -1,6 +1,6 @@
 extends Area2D
 
-var vel = 250
+var vel = 150
 var rot = 0 # rotation
 var life = 4 
 
@@ -18,4 +18,5 @@ func apply_damage(value):
 	get_node("anim").play("hit")
 	life -= value
 	if life <= 0:
-		queue_free()
+		remove_from_group(game.GROUP_ENEMY)
+		get_node("anim").play("destroy")
