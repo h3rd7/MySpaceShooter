@@ -19,7 +19,7 @@ Following **PapaiGameMaker** channel tutorial on youtube
 [Tutorial Godot - Engine Grátis para jogos 2D e 3D](https://www.youtube.com/playlist?list=PLQzIfDE4WrykgQb3fMwBR2j-kc0eIW-Qn)  
 
 **[video tagging sequence]**  
-#1, #2, #3, #4, #5, #6
+#1, #2, #3, #4, #5, #6, #7
 
 
 ### GitHub: [**vagner-h3rd7**](https://github.com/h3rd7)  
