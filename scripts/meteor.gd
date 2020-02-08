@@ -25,3 +25,4 @@ func apply_damage(value):
 		set_z_index(10) #set_z(10)
 		remove_from_group(game.GROUP_ENEMY)
 		get_node("anim").play("destroy")
+		game.getCamera().shake()
