@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/meteor_explosion.wav-fa4ff514d9b4b39c32b8a1b7c6a9ee37.sample"
+
+[deps]
+
+source_file="res://samples/meteor_explosion.wav"
+dest_files=[ "res://.import/meteor_explosion.wav-fa4ff514d9b4b39c32b8a1b7c6a9ee37.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

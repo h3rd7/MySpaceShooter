@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/shot.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Lasers/laserBlue04.png" type="Texture" id=2]
+[ext_resource path="res://samples/shot.wav" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.51776
@@ -17,4 +18,7 @@ texture = ExtResource( 2 )
 [node name="shape" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -19 )
 shape = SubResource( 1 )
+
+[node name="sample" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
 [connection signal="area_entered" from="." to="." method="_on_shot_area_entered"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/meteor.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Meteors/meteorBrown_big1.png" type="Texture" id=2]
+[ext_resource path="res://samples/meteor_explosion.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "destroy"
@@ -86,17 +87,17 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=7]
+[sub_resource type="CanvasItemMaterial" id=4]
 blend_mode = 1
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.459259, 0.733333, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 0.925232, 0.234375, 1, 1, 0.117647, 0.117647, 1, 1, 0, 0, 0.117647 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=7]
 emission_shape = 1
 emission_sphere_radius = 2.0
 flag_disable_z = true
@@ -113,7 +114,7 @@ linear_accel_random = 0.5
 radial_accel = 3.9
 scale = 20.0
 scale_random = 0.69
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 6 )
 
 [node name="meteor" type="Area2D"]
 script = ExtResource( 1 )
@@ -134,9 +135,12 @@ anims/hit = SubResource( 2 )
 anims/idle = SubResource( 3 )
 
 [node name="particles" type="Particles2D" parent="."]
-material = SubResource( 7 )
+material = SubResource( 4 )
 emitting = false
 amount = 60
 lifetime = 0.6
 explosiveness = 0.7
-process_material = SubResource( 6 )
+process_material = SubResource( 7 )
+
+[node name="sample" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )

@@ -21,6 +21,7 @@ func apply_damage(value):
 	get_node("anim").play("hit")
 	life -= value
 	if life <= 0:
+		get_node("sample").play()
 		set_process(false)
 		set_z_index(10) #set_z(10)
 		remove_from_group(game.GROUP_ENEMY)

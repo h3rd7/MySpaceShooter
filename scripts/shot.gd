@@ -4,6 +4,7 @@ var vel = 500 # velocity
 
 func _ready():
 	set_process(true)
+	get_node("sample").play()
 
 
 func _process(delta):
